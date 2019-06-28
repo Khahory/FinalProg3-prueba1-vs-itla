@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+  <Alias Key="Model" Value="ADOContext_db" />
+  <Alias Key="Target" Value="ADOContext_db.Store" />
+  <EntityContainerMapping CdmEntityContainer="ADOContext_dbContainer" StorageEntityContainer="ADOContext_dbTargetContainer" />
+</Mapping>

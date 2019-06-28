@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="ADOContext_db.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
+        <EntityContainer Name="ADOContext_dbTargetContainer" >
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ADOContext_db" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ADOContext_dbContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="EmpleadosSet" EntityType="ADOContext_db.Empleados" />
+          <EntitySet Name="DepartamentosSet" EntityType="ADOContext_db.Departamentos" />
+          <EntitySet Name="CargosSet" EntityType="ADOContext_db.Cargos" />
+          <EntitySet Name="NominasSet" EntityType="ADOContext_db.Nominas" />
+          <EntitySet Name="SalidaEmpleadosSet" EntityType="ADOContext_db.SalidaEmpleados" />
+          <EntitySet Name="VacacionesSet" EntityType="ADOContext_db.Vacaciones" />
+          <EntitySet Name="PermisosSet" EntityType="ADOContext_db.Permisos" />
+          <EntitySet Name="LicenciasSet" EntityType="ADOContext_db.Licencias" />
+        </EntityContainer>
+        <EntityType Name="Empleados">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="CodigoEmpleado" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="CodigoEmpleado" Type="String" Nullable="false" MaxLength="30" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="30" />
+          <Property Name="Apellido" Type="String" Nullable="false" MaxLength="30" />
+          <Property Name="Telefono" Type="Int32" Nullable="false" />
+          <Property Name="Departamento" Type="String" Nullable="false" MaxLength="30" />
+          <Property Name="Cargo" Type="String" Nullable="false" MaxLength="30" />
+          <Property Name="FechaIngreso" Type="String" Nullable="false" MaxLength="20" />
+          <Property Name="Estatus" Type="Int32" Nullable="false" DefaultValue="1" />
+        </EntityType>
+        <EntityType Name="Departamentos">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="CodigoDepartamento" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoDepartamento" Type="String" Nullable="false" MaxLength="30" annotation:StoreGeneratedPattern="None" />
+          <Property Name="Nombre" Nullable="false" MaxLength="30" Type="String" />
+        </EntityType>
+        <EntityType Name="Cargos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cargo" Type="String" Nullable="false" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Nominas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Año" Type="Int32" Nullable="false" />
+          <Property Name="Mes" Type="String" Nullable="false" MaxLength="10" />
+          <Property Name="MontoTotal" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SalidaEmpleados">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Empleado" Type="String" Nullable="false" MaxLength="30" />
+          <Property Name="TipoSalida" Type="String" Nullable="false" MaxLength="20" />
+          <Property Name="Motivo" Type="String" Nullable="false" MaxLength="50" />
+          <Property Name="FechaSalida" Type="String" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Vacaciones">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Empleado" Type="String" Nullable="false" MaxLength="30" />
+          <Property Name="Desde" Type="String" Nullable="false" MaxLength="20" />
+          <Property Name="Hasta" Type="String" Nullable="false" MaxLength="20" />
+          <Property Name="CorrespondienteAño" Type="Int32" Nullable="false" />
+          <Property Name="Comentario" Type="String" Nullable="true" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Permisos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Empleado" Type="String" Nullable="false" MaxLength="30" />
+          <Property Name="Desde" Type="String" Nullable="false" MaxLength="20" />
+          <Property Name="Hasta" Type="String" Nullable="false" MaxLength="20" />
+          <Property Name="Comentario" Type="String" Nullable="true" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Licencias">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Empleado" Type="String" Nullable="false" MaxLength="30" />
+          <Property Name="Desde" Type="String" Nullable="false" MaxLength="20" />
+          <Property Name="Hasta" Type="String" Nullable="false" MaxLength="20" />
+          <Property Name="Motivo" Type="String" Nullable="false" MaxLength="50" />
+          <Property Name="Comentario" Type="String" Nullable="true" MaxLength="50" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="ADOContext_db" />
+        <Alias Key="Target" Value="ADOContext_db.Store" />
+        <EntityContainerMapping CdmEntityContainer="ADOContext_dbContainer" StorageEntityContainer="ADOContext_dbTargetContainer">
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
